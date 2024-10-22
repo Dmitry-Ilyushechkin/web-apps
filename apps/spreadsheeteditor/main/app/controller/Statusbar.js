@@ -663,6 +663,10 @@ define([
                 this.loadTabColor(sheetIndex);
             }
             var me = this;
+            if (this.api.asc_getActiveWorksheetIndex() === sheetIndex) {
+                me.statusbar.tabbar.setTabVisible(me.statusbar.tabbar.getActive());
+                me.statusbar.sheetListMenu.items[this.api.asc_getActiveWorksheetIndex()].setChecked(true);
+            }           
             setTimeout(function(){
                 me.statusbar.sheetListMenu.hide();
             }, 1);
